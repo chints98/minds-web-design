@@ -1,7 +1,4 @@
-
-
-
-function Playground():JSX.Element {
+function Navbar():JSX.Element {
     return (
         <div>
           <p>Component Playground</p>
@@ -9,4 +6,4 @@ function Playground():JSX.Element {
       )
     
 }
-export default Playground;
+export default Navbar;
