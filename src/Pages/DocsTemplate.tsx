@@ -9,6 +9,7 @@ import { Grid, Row, Col } from "react-flexbox-grid"
 
 import MindsLogoIcon from '../bulb.svg'
 import ArrowIcon from '../arrow-right.svg'
+import ArrowLeft from '../arrow-left.svg'
 //adding support for IBM Plex Mono as a font.
 
 //rough inline styles here
@@ -282,7 +283,6 @@ const styles = {
     minWidth: "52px",
     padding: "8px 12px",
     gap: "8px",
-    backgroundColor: "#fff",
     border: "1px solid #FFD048",
     borderRadius: "100px",
 
@@ -337,6 +337,7 @@ const buttonPrimaryVar = {
   default: {
     backgroundColor: "#FFD048",
 
+
   }, hover: {
     backgroundColor: "#fff",
     transition: {
@@ -347,6 +348,21 @@ const buttonPrimaryVar = {
 
 }
 
+
+const buttonSecondaryVar = {
+    default: {
+      backgroundColor: "#fff",
+  
+  
+    }, hover: {
+        backgroundColor: "#FFD048",
+        transition: {
+        type: "tween",
+        duration: 0.14,
+      }
+    },
+  
+  }
 const buttonBaseVar = {
   default: {
     opacity: 1,
@@ -364,7 +380,7 @@ const buttonBaseVar = {
 
 //style rough layout and docs page here.
 
-function ExampleLayout(): JSX.Element {
+function DocsTemplate(): JSX.Element {
   return (
     <motion.div>
       <motion.div style={styles.navTopContainer}>
@@ -422,7 +438,7 @@ function ExampleLayout(): JSX.Element {
                     variants={navLeftLinkVar}
                     initial="default"
                     whileHover="hover"
-                  >Example</motion.p>
+                  >Installation</motion.p>
                 </motion.div>
                 <motion.div style={styles.navLeftTextContainerInner}
                   variants={navLeftContainerVar}
@@ -445,9 +461,9 @@ function ExampleLayout(): JSX.Element {
           <Col xs={8}>
             <motion.div style={styles.docsContainer}>
               <motion.div>
-                <h1 style={styles.docsHeaderLarge}>Welcome to the Minds stack</h1>
+                <h1 style={styles.docsHeaderLarge}>This is an example of a large header</h1>
                 <p style={styles.docsBodyNormal}>Minds is a free & open-source, encrypted and reward-based social networking platform. Our roadmap, code, project management system, and more all reside in GitLab.</p>
-                <h3 style={styles.docsHeaderSmall}>Repositories</h3>
+                <h3 style={styles.docsHeaderSmall}>This is a small header</h3>
                 <p style={styles.docsBodyNormal}>The Minds repository contains multiple git submodule repositories:</p>
                 <p style={styles.docsBodyNormal}>
                   <ul>
@@ -457,8 +473,8 @@ function ExampleLayout(): JSX.Element {
                     <li>Mobile - React Native mobile apps</li>
                   </ul>
                 </p>
-                <h2 style={styles.docsHeaderMedium}>Installation</h2>
-                <h3 style={styles.docsHeaderSmall}>Development System Requirements</h3>
+                <h2 style={styles.docsHeaderMedium}>This is a medium header</h2>
+                <h3 style={styles.docsHeaderSmall}>Another small header</h3>
                 <p style={styles.docsBodyNormal}>
                   <ul>
                     <li>Any modern x86_64 multi-core CPU that supports virtualization.</li>
@@ -467,6 +483,22 @@ function ExampleLayout(): JSX.Element {
                     <li>Internet connectivity (only needed for downloading and provisioning the stack).</li>
                   </ul>
                 </p>
+                <p style={styles.docsBodyNormal}></p>
+                <p style={styles.docsBodyNormal}></p>
+                <p style={styles.docsBodyNormal}></p>
+                <p style={styles.docsBodyNormal}></p>
+                <p style={styles.docsBodyNormal}></p>
+                <p style={styles.docsBodyNormal}></p>
+                <p style={styles.docsBodyNormal}></p>
+                <p style={styles.docsBodyNormal}></p>
+                <p style={styles.docsBodyNormal}></p>
+                <p style={styles.docsBodyNormal}></p>
+                <p style={styles.docsBodyNormal}></p>
+                <p style={styles.docsBodyNormal}></p>
+                <p style={styles.docsBodyNormal}></p>
+                <p style={styles.docsBodyNormal}></p>
+                <p style={styles.docsBodyNormal}></p>
+
               </motion.div>
 
               <motion.div style={styles.docsActionContainer}>
@@ -478,16 +510,30 @@ function ExampleLayout(): JSX.Element {
                   <a style={styles.buttonPrimaryText}>Edit</a>
                 </motion.div>
 
+                <motion.div style={styles.buttonSecondaryAction}
+                  variants={buttonSecondaryVar}
+                  initial="default"
+                  whileHover="hover"
+                >
+                                      <img src={ArrowLeft}></img>
+
+                  <Link to= '/Pages/ExampleLayout' style={{textDecoration: 'none'}}>
+                  <a style={styles.buttonPrimaryText}>Intro page</a>
+                  </Link>
+                </motion.div>
+
                 <motion.div style={styles.buttonPrimaryAction}
                   variants={buttonPrimaryVar}
                   initial="default"
                   whileHover="hover"
                 >
                   <Link to= '/Pages/DocsTemplate' style={{textDecoration: 'none'}}>
-                  <a style={styles.buttonPrimaryText}>Example page</a>
+                  <a style={styles.buttonPrimaryText}>Template page 2</a>
                   </Link>
                   <img src={ArrowIcon}></img>
                 </motion.div>
+
+
 
               </motion.div>
 
@@ -523,4 +569,4 @@ function ExampleLayout(): JSX.Element {
   )
 
 }
-export default ExampleLayout;
+export default DocsTemplate;

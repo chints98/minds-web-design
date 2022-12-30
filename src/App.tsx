@@ -8,7 +8,7 @@ import ExampleLayout from './Pages/ExampleLayout'
 import Playground from './Components/Playground'
 import DocsHome from './Pages/DocsPage/DocsHome'
 import ProductHome from './Pages/ProductPages/ProductHome'
-
+import DocsTemplate from './Pages/DocsTemplate';
 
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
       <Route path="/Pages/DocsPage/DocsHome" element={<DocsHome/>}/>
       <Route path="/Pages/ProductPages/ProductHome" element={<ProductHome/>}/>
       <Route path="/Pages/ExampleLayout" element={<ExampleLayout/>}/>
+      <Route path="/Pages/DocsTemplate" element={<DocsTemplate/>}/>
       <Route path="/Components/Playground" element={<Playground/>}/>
       </Routes>
     </div>
