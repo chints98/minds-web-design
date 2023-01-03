@@ -9,7 +9,6 @@ import { Grid, Row, Col } from "react-flexbox-grid"
 
 import MindsLogoIcon from '../bulb.svg'
 import ArrowIcon from '../arrow-right.svg'
-//adding support for IBM Plex Mono as a font.
 
 //rough inline styles here
 const styles = {
@@ -230,7 +229,7 @@ const styles = {
     height: "52px",
     padding: "8px 8px 8px 8px",
     marginTop: "64px",
-    gap: "8px",
+    gap: "12px",
 
   } as const,
 
@@ -241,7 +240,7 @@ const styles = {
     justifyContent: "space-evenly",
     maxHeight: "36px",
     minWidth: "52px",
-    padding: "8px 12px",
+    padding: "8px 24px",
     gap: "8px",
     border: "1px solid #FFD048",
     backgroundColor: "#FFD048",
@@ -251,9 +250,9 @@ const styles = {
   buttonPrimaryText: {
     color: "#1C1D1F",
     fontSize: "19px",
-    lineHeight: "27px",
+    lineHeight: "28px",
     fontWeight: "700",
-    textAlign: "center",
+    letterSpacing: "0.16px"
 
   } as const,
 
@@ -267,7 +266,7 @@ const styles = {
     justifyContent: "space-evenly",
     maxHeight: "36px",
     minWidth: "52px",
-    padding: "8px 12px",
+    padding: "8px 24px",
     gap: "8px",
     border: "1px solid #D0D2D5",
     borderRadius: "100px",
@@ -280,7 +279,7 @@ const styles = {
     justifyContent: "space-evenly",
     maxHeight: "36px",
     minWidth: "52px",
-    padding: "8px 12px",
+    padding: "8px 24px",
     gap: "8px",
     backgroundColor: "#fff",
     border: "1px solid #FFD048",
@@ -486,7 +485,7 @@ function ExampleLayout(): JSX.Element {
                   <Link to= '/Pages/DocsTemplate' style={{textDecoration: 'none'}}>
                   <a style={styles.buttonPrimaryText}>Example page</a>
                   </Link>
-                  <img src={ArrowIcon}></img>
+                  <img src={ArrowIcon} style={{height: "28px"}}></img>
                 </motion.div>
 
               </motion.div>

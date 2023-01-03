@@ -9,8 +9,8 @@ import Playground from './Components/Playground'
 import DocsHome from './Pages/DocsPage/DocsHome'
 import ProductHome from './Pages/ProductPages/ProductHome'
 import DocsTemplate from './Pages/DocsTemplate';
-
-
+import ExampleLandingDocs from './Pages/ExampleLandingDocs'
+import ExampleLandingProduct from './Pages/ExampleLandingProduct';
 function App() {
   return (
     <div>
@@ -21,6 +21,9 @@ function App() {
       <Route path="/Pages/ExampleLayout" element={<ExampleLayout/>}/>
       <Route path="/Pages/DocsTemplate" element={<DocsTemplate/>}/>
       <Route path="/Components/Playground" element={<Playground/>}/>
+      <Route path="/Pages/ExampleLandingDocs" element={<ExampleLandingDocs/>}/>
+      <Route path="/Pages/ExampleLandingProduct" element={<ExampleLandingProduct/>}/>
+
       </Routes>
     </div>
   );

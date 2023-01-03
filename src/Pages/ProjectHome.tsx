@@ -24,6 +24,8 @@ function ProjectHome():JSX.Element {
                     <Col xs><Link to="/Components/Playground" target={'_blank'}><a>Link to component playground</a> </Link></Col>
                     <Col xs><Link to="/Pages/DocsPage/DocsHome" target={'_blank'}><a>Link to DocsHome</a> </Link></Col>
                     <Col xs><Link to="/Pages/ProductPages/ProductHome" target={'_blank'}><a>Link to ProductHome</a> </Link></Col>
+                    <Col xs><Link to="/Pages/ExampleLandingDocs" target={'_blank'}><a>Link to Docs landing page (rough)</a> </Link></Col>
+                    <Col xs><Link to="/Pages/ExampleLandingProduct" target={'_blank'}><a>Link to Product landing page (rough)</a> </Link></Col>
 
                 </Row>
             </Grid>
