@@ -9,7 +9,6 @@ import { Grid, Row, Col } from "react-flexbox-grid"
 
 import MindsLogoIcon from '../mindsLogoLight.svg'
 import ArrowIcon from '../arrow-right.svg'
-import heroVideo from '../cloner-cube-binary.mp4'
 
 import landingPicOne from '../standing-23.png'
 import landingPicTwo from '../standing-24.png'
@@ -742,7 +741,6 @@ function ExampleLandingDocs(): JSX.Element {
                 <motion.div>
                   <Spline style={styles.heroImgContainer} scene="https://prod.spline.design/od2U43kR8huT1vOn/scene.splinecode"/>
                 </motion.div>
-
               </Col>
             </motion.div>
           </Row>
