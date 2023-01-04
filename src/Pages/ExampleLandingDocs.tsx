@@ -7,12 +7,13 @@ import { Link } from 'react-router-dom'
 
 import { Grid, Row, Col } from "react-flexbox-grid"
 
-import MindsLogoIcon from '../bulb.svg'
+import MindsLogoIcon from '../mindsLogoLight.svg'
 import ArrowIcon from '../arrow-right.svg'
 import heroVideo from '../cloner-cube-binary.mp4'
 
 import landingPicOne from '../standing-23.png'
 import landingPicTwo from '../standing-24.png'
+import Spline from '@splinetool/react-spline';
 
 
 const styles = {
@@ -68,8 +69,29 @@ const styles = {
     alignItems: "flex-start",
     justifyContent: "space-between",
     width: "100%",
-    backgroundColor: "#E8E8EA",
-    minHeight: "52px",
+    backgroundColor: "#fff",
+    height: "72px",
+    border: "1px solid #E8E8EA",
+  } as const,
+
+
+  navBottomContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+    width: "100%",
+    backgroundColor: "#fff",
+    border: "1px solid #E8E8EA",
+    marginBottom: "-72px"
+  } as const,
+
+
+  navTopText: {
+    fontSize: "19px",
+    lineHeight: "32px",
+    fontWeight: "700",
+    color: "#1C1D1F",
   } as const,
 
 
@@ -78,7 +100,7 @@ const styles = {
     flexDirection: "row",
     alignItems: "flex-start",
     padding: "24px 24px 24px 24px",
-    gap: "12px",
+    gap: "0px",
     minHeight: "32px",
     flexOrder: "1",
 
@@ -87,9 +109,10 @@ const styles = {
   navTopLeftImg: {
     maxWidth: "100%",
     overflow: "visible",
-    maxHeight: "32px",
-    marginRight: "24px",
+    height: "24px",
+    marginRight: "12px",
   } as const,
+
 
   navTopRight: {
     display: "flex",
@@ -102,7 +125,6 @@ const styles = {
   } as const,
 
   navTopLinkDefault: {
-    color: "#1C1D1F",
     fontSize: "16px",
     lineHeight: "22px",
 
@@ -110,7 +132,6 @@ const styles = {
   } as const,
 
   navTopLinkLeft: {
-    color: "#1C1D1F",
     fontSize: "16px",
     lineHeight: "22px",
     fontWeight: "500",
@@ -118,7 +139,6 @@ const styles = {
 
   navTopLinkActive: {
 
-    color: "#1C1D1F",
     fontSize: "16px",
     lineHeight: "22px",
     textDecoration: "underline",
@@ -242,8 +262,8 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-evenly",
-    maxHeight: "36px",
     minWidth: "52px",
+    maxHeight: "38px",
     padding: "8px 24px",
     gap: "8px",
     border: "1px solid #FFD048",
@@ -253,8 +273,8 @@ const styles = {
 
   buttonPrimaryText: {
     color: "#1C1D1F",
-    fontSize: "19px",
-    lineHeight: "28px",
+    fontSize: "16px",
+    lineHeight: "22px",
     fontWeight: "700",
     letterSpacing: "0.16px"
 
@@ -268,7 +288,7 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-evenly",
-    maxHeight: "36px",
+    maxHeight: "38px",
     minWidth: "52px",
     padding: "8px 24px",
     gap: "8px",
@@ -281,7 +301,7 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-evenly",
-    maxHeight: "36px",
+    maxHeight: "38px",
     minWidth: "52px",
     padding: "8px 24px",
     gap: "8px",
@@ -290,7 +310,6 @@ const styles = {
     borderRadius: "100px",
 
   } as const,
-
 
   //other, LANDING PAGE based styles
 
@@ -355,7 +374,8 @@ const styles = {
     alignItems: "flex-start",
     padding: "8px 18px 8px 8px",
     gap: "8px",
-    maxHeight: "380px",
+    minWidth: "100%",
+    minHeight: "90%"
     //border: "1px solid black"
 
 
@@ -387,15 +407,14 @@ const styles = {
     alignItems: "flex-start",
     margin: "24px",
     gap: "8px",
-    width: "376px",
-    minHeight: "472px",
-    //border: "2px solid #7F661D",
-    backgroundColor: "#FFD048",
+    border: "2px solid #1C1D1F",
+    //backgroundColor: "#1C1D1F",
+    borderRadius: "4px",
   } as const,
 
   landingCardTextContainer: {
     flex: "none",
-    paddingLeft: "24px",
+    padding: "24px",
     order: "0",
     flexGrow: "0"
   } as const,
@@ -407,6 +426,25 @@ const styles = {
     flexGrow: "0"
 
 
+  } as const,
+
+  altActionContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+    padding: "8px 8px 8px 8px",
+    gap: "8px",
+
+  } as const,
+
+  altActionInner: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-start",
+    justifyContent: "flex-end",
+    padding: "8px 8px 16px 8px",
+    gap: "8px",
   } as const,
 
   cardTitle: {
@@ -443,6 +481,16 @@ const styles = {
 
   } as const,
 
+
+  bodyTextBold: {
+    color: "#1C1D1F",
+    fontSize: "16px",
+    lineHeight: "22px",
+    fontWeight: "700",
+    letterSpacing: "0px"
+
+  } as const,
+
   cardLink: {
     color: "#1C1D1F",
     fontSize: "16px",
@@ -451,6 +499,17 @@ const styles = {
     letterSpacing: "0px",
     textDecoration: "underline"
   } as const,
+
+  cardLinkLight: {
+    color: "#1C1D1F",
+    fontSize: "16px",
+    lineHeight: "22px",
+    fontWeight: "400",
+    letterSpacing: "0px",
+    textDecoration: "underline"
+
+  } as const,
+
 
   layoutSectionContainer: {
     //border: "1px solid black"
@@ -529,14 +588,19 @@ const navLeftLinkVar = {
 
 const topLinkVar = {
   default: {
+    color: "#1C1D1F",
     textDecoration: "none"
-  }, active: {}, hover: {
+  }, active: {
+    color: "#7F661D",
     textDecoration: "underline",
+  }, hover: {
+    color: "#7F661D",
     transition: {
-      type: "ease",
-      ease: [0.22, 1, 0.36, 1],
-      duration: 0.15,
-    }
+      type: "tween",
+      duration: 0.12,
+    },
+    textDecoration: "underline",
+
   },
 
 }
@@ -595,38 +659,67 @@ function ExampleLandingDocs(): JSX.Element {
       <motion.div style={styles.navTopContainer}>
         <motion.div style={styles.navTopLeft}>
           <img style={styles.navTopLeftImg} src={MindsLogoIcon} />
-          <motion.a style={styles.navTopLinkLeft}
-            variants={topLinkVar}
-            initial="default"
-            whileHover="hover"
-
-          >back to minds.com</motion.a>
+          <motion.a style={styles.navTopText}>Developers</motion.a>
 
         </motion.div>
         <motion.div style={styles.navTopRight}>
+          <Link to="/Pages/ExampleLandingDocs" style={{ textDecoration: "none" }}>
+            <motion.a style={styles.navTopLinkActive}
+              variants={topLinkVar}
+              initial="active"
+              whileHover="hover"
+              href="/Pages/ExampleLayout"
 
-          <motion.a style={styles.navTopLinkActive}>Home</motion.a>
-          <motion.a style={styles.navTopLinkDefault}
-            variants={topLinkVar}
-            initial="default"
-            whileHover="hover"
+            >Home</motion.a>
+          </Link>
 
-          >Docs</motion.a>
-          <motion.a style={styles.navTopLinkDefault}
-            variants={topLinkVar}
-            initial="default"
-            whileHover="hover"
+          <Link to="/Pages/ExampleLayout" style={{ textDecoration: "none" }}>
+            <motion.a style={styles.navTopLinkActive}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
 
-          >Contribute</motion.a>
-          <motion.a style={styles.navTopLinkDefault}
-            variants={topLinkVar}
-            initial="default"
-            whileHover="hover"
+            >Docs</motion.a>
+          </Link>
 
-          >Repositories</motion.a>
+
+
+
+          <Link to="/Pages/DocsTemplate" style={{ textDecoration: "none" }}>
+            <motion.a style={styles.navTopLinkDefault}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
+
+            >Contribute</motion.a>
+
+          </Link>
+
+
+            <motion.a style={styles.navTopLinkDefault}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
+              href="https://gitlab.com/minds"
+              target="_blank"
+
+            >Repositories</motion.a>
+
+
+            <motion.a style={styles.navTopLinkDefault}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
+              href="https://www.minds.com"
+              target="_blank"
+
+            >Minds.com</motion.a>
+
+
 
         </motion.div>
       </motion.div>
+
 
 
       <Grid fluid={true}>
@@ -641,13 +734,15 @@ function ExampleLandingDocs(): JSX.Element {
                   <motion.p style={styles.heroContentText}>
                     Welcome to the Minds developer portal. Find everything you need to start contributing to Minds, work with any of the projects in the Minds stack, or get familiar with our product roadmap.
                   </motion.p>
-                  <motion.p style={styles.cardTextBold}>If you’re looking for design tokens and UI resources, check out <motion.a style={styles.cardLink} variants={heroLinkVar} initial="default" whileHover="hover">design.minds.com</motion.a></motion.p>
+                  <motion.p style={styles.bodyTextBold}>If you’re looking for design tokens and UI resources, check out <motion.a style={styles.cardLink} variants={heroLinkVar} initial="default" whileHover="hover">design.minds.com</motion.a></motion.p>
                 </motion.div>
               </Col>
               <Col>
-                <motion.div style={styles.heroImgContainer}>
-                  <video style={styles.heroImg} src={heroVideo} controls autoPlay loop></video>
+
+                <motion.div>
+                  <Spline style={styles.heroImgContainer} scene="https://prod.spline.design/od2U43kR8huT1vOn/scene.splinecode"/>
                 </motion.div>
+
               </Col>
             </motion.div>
           </Row>
@@ -660,6 +755,7 @@ function ExampleLandingDocs(): JSX.Element {
                   <motion.h1 style={styles.cardTitle}>Get started</motion.h1>
                   <motion.p style={styles.cardText}>Install a version of Minds on your local machine, and troubleshoot any potential issues at install.</motion.p>
                   <motion.p style={styles.cardText}>The Minds repository contains multiple git submodule repositories</motion.p>
+
                   <motion.p style={styles.cardText}>
                     <ul>
                       <li>Engine</li>
@@ -677,51 +773,29 @@ function ExampleLandingDocs(): JSX.Element {
 
                 </motion.div>
 
-                <motion.div style={styles.landingCardActionContainer}>
-                <motion.p style={styles.cardText}><motion.a style={styles.cardLink} variants={heroLinkVar} initial="default" whileHover="hover">Get started</motion.a></motion.p>
-
+                <motion.div style={styles.altActionContainer}>
+                  <motion.div style={styles.altActionInner}>
+                    <motion.div style={styles.buttonPrimaryAction}
+                      variants={buttonPrimaryVar}
+                      initial="default"
+                      whileHover="hover"
+                    >
+                      <motion.a style={styles.buttonPrimaryText}>
+                        Action
+                      </motion.a>
+                    </motion.div>
+                  </motion.div>
                 </motion.div>
-
-              </motion.div>
-            </Col>
-            <Col>
-              <motion.div style={styles.landingCardContainer}>
-              <motion.div style={styles.landingCardTextContainer}>
-                  <motion.h1 style={styles.cardTitle}>Get started</motion.h1>
-                  <motion.p style={styles.cardText}>Install a version of Minds on your local machine, and troubleshoot any potential issues at install.</motion.p>
-                  <motion.p style={styles.cardText}>The Minds repository contains multiple git submodule repositories</motion.p>
-                  <motion.p style={styles.cardText}>
-                    <ul>
-                      <li>Engine</li>
-                      <li>Front</li>
-                      <li>Mobile</li>
-                      <li>Sockets</li>
-                    </ul>
-                  </motion.p>
-                  <motion.p style={styles.cardText}>However, for install, you only need to clone the following repositories</motion.p>
-                  <motion.p style={styles.cardTextBold}>SSH</motion.p>
-                  <motion.p style={styles.cardText}>git@gitlab.com:minds/minds.git</motion.p>
-                  <motion.p style={styles.cardTextBold}>HTTP</motion.p>
-                  <motion.p style={styles.cardText}>https://gitlab.com/minds/minds.git</motion.p>
-                  <motion.p style={styles.cardText}>The Minds repository contains multiple git submodule repositories</motion.p>
-
-                </motion.div>
-
-                <motion.div style={styles.landingCardActionContainer}>
-                <motion.p style={styles.cardText}><motion.a style={styles.cardLink} variants={heroLinkVar} initial="default" whileHover="hover">Get started</motion.a></motion.p>
-
-                </motion.div>
-
-
               </motion.div>
             </Col>
 
             <Col>
               <motion.div style={styles.landingCardContainer}>
-              <motion.div style={styles.landingCardTextContainer}>
+                <motion.div style={styles.landingCardTextContainer}>
                   <motion.h1 style={styles.cardTitle}>Get started</motion.h1>
                   <motion.p style={styles.cardText}>Install a version of Minds on your local machine, and troubleshoot any potential issues at install.</motion.p>
                   <motion.p style={styles.cardText}>The Minds repository contains multiple git submodule repositories</motion.p>
+
                   <motion.p style={styles.cardText}>
                     <ul>
                       <li>Engine</li>
@@ -739,14 +813,118 @@ function ExampleLandingDocs(): JSX.Element {
 
                 </motion.div>
 
-                <motion.div style={styles.landingCardActionContainer}>
-                <motion.p style={styles.cardText}><motion.a style={styles.cardLink} variants={heroLinkVar} initial="default" whileHover="hover">Get started</motion.a></motion.p>
-
+                <motion.div style={styles.altActionContainer}>
+                  <motion.div style={styles.altActionInner}>
+                    <motion.div style={styles.buttonPrimaryAction}
+                      variants={buttonPrimaryVar}
+                      initial="default"
+                      whileHover="hover"
+                    >
+                      <motion.a style={styles.buttonPrimaryText}>
+                        Action
+                      </motion.a>
+                    </motion.div>
+                  </motion.div>
                 </motion.div>
+
+
 
 
               </motion.div>
             </Col>
+
+
+          </motion.div>
+
+
+
+
+          <motion.div style={styles.sectionContainer}>
+            <Col>
+              <motion.div style={styles.landingCardContainer}>
+                <motion.div style={styles.landingCardTextContainer}>
+                  <motion.h1 style={styles.cardTitle}>Get started</motion.h1>
+                  <motion.p style={styles.cardText}>Install a version of Minds on your local machine, and troubleshoot any potential issues at install.</motion.p>
+                  <motion.p style={styles.cardText}>The Minds repository contains multiple git submodule repositories</motion.p>
+
+                  <motion.p style={styles.cardText}>
+                    <ul>
+                      <li>Engine</li>
+                      <li>Front</li>
+                      <li>Mobile</li>
+                      <li>Sockets</li>
+                    </ul>
+                  </motion.p>
+                  <motion.p style={styles.cardText}>However, for install, you only need to clone the following repositories</motion.p>
+                  <motion.p style={styles.cardTextBold}>SSH</motion.p>
+                  <motion.p style={styles.cardText}>git@gitlab.com:minds/minds.git</motion.p>
+                  <motion.p style={styles.cardTextBold}>HTTP</motion.p>
+                  <motion.p style={styles.cardText}>https://gitlab.com/minds/minds.git</motion.p>
+                  <motion.p style={styles.cardText}>The Minds repository contains multiple git submodule repositories</motion.p>
+
+                </motion.div>
+
+                <motion.div style={styles.altActionContainer}>
+                  <motion.div style={styles.altActionInner}>
+                    <motion.div style={styles.buttonPrimaryAction}
+                      variants={buttonPrimaryVar}
+                      initial="default"
+                      whileHover="hover"
+                    >
+                      <motion.a style={styles.buttonPrimaryText}>
+                        Action
+                      </motion.a>
+                    </motion.div>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+            </Col>
+
+            <Col>
+              <motion.div style={styles.landingCardContainer}>
+                <motion.div style={styles.landingCardTextContainer}>
+                  <motion.h1 style={styles.cardTitle}>Get started</motion.h1>
+                  <motion.p style={styles.cardText}>Install a version of Minds on your local machine, and troubleshoot any potential issues at install.</motion.p>
+                  <motion.p style={styles.cardText}>The Minds repository contains multiple git submodule repositories</motion.p>
+
+                  <motion.p style={styles.cardText}>
+                    <ul>
+                      <li>Engine</li>
+                      <li>Front</li>
+                      <li>Mobile</li>
+                      <li>Sockets</li>
+                    </ul>
+                  </motion.p>
+                  <motion.p style={styles.cardText}>However, for install, you only need to clone the following repositories</motion.p>
+                  <motion.p style={styles.cardTextBold}>SSH</motion.p>
+                  <motion.p style={styles.cardText}>git@gitlab.com:minds/minds.git</motion.p>
+                  <motion.p style={styles.cardTextBold}>HTTP</motion.p>
+                  <motion.p style={styles.cardText}>https://gitlab.com/minds/minds.git</motion.p>
+                  <motion.p style={styles.cardText}>The Minds repository contains multiple git submodule repositories</motion.p>
+
+                </motion.div>
+
+                <motion.div style={styles.altActionContainer}>
+                  <motion.div style={styles.altActionInner}>
+                    <motion.div style={styles.buttonPrimaryAction}
+                      variants={buttonPrimaryVar}
+                      initial="default"
+                      whileHover="hover"
+                    >
+                      <motion.a style={styles.buttonPrimaryText}>
+                        Action
+                      </motion.a>
+                    </motion.div>
+                  </motion.div>
+                </motion.div>
+
+
+
+
+              </motion.div>
+            </Col>
+
+
           </motion.div>
 
           <motion.div style={styles.layoutSectionContainer}>
@@ -755,12 +933,22 @@ function ExampleLandingDocs(): JSX.Element {
                 <motion.h1 style={styles.cardTitle}> How we work</motion.h1>
                 <motion.p style={styles.cardText}>Minds is a distributed team located on both sides of the Atlantic. We communicate via Minds Chat and Gitlab.</motion.p>
                 <motion.p style={styles.cardText}>Our workflow aims to provide a continuous and iterative development model that continuously deploys code, drives momentum to reliably ships products, enables developers to be creative and gives product level responsibilities to small teams.</motion.p>
-                <motion.p style={styles.cardText}><motion.a style={styles.cardLink} variants={heroLinkVar} initial="default" whileHover="hover">Learn more</motion.a></motion.p>
+
+                <motion.div style={styles.buttonPrimaryAction}
+                  variants={buttonPrimaryVar}
+                  initial="default"
+                  whileHover="hover"
+                >
+                  <motion.a style={styles.buttonPrimaryText}>
+                    Action
+                  </motion.a>
+                </motion.div>
+
               </motion.div>
             </Col>
             <Col>
               <motion.div style={styles.sectionImgContainer}>
-                <img style={styles.heroImg} src={landingPicOne}/>
+                <img style={styles.heroImg} src={landingPicOne} />
               </motion.div>
             </Col>
           </motion.div>
@@ -768,7 +956,7 @@ function ExampleLandingDocs(): JSX.Element {
           <motion.div style={styles.layoutSectionContainer}>
             <Col>
               <motion.div style={styles.sectionImgContainer}>
-              <img style={styles.heroImg} src={landingPicTwo}/>
+                <img style={styles.heroImg} src={landingPicTwo} />
 
               </motion.div>
             </Col>
@@ -777,8 +965,15 @@ function ExampleLandingDocs(): JSX.Element {
                 <motion.h1 style={styles.cardTitle}> Minds+</motion.h1>
                 <motion.p style={styles.cardText}>Minds is a distributed team located on both sides of the Atlantic. We communicate via Minds Chat and Gitlab.</motion.p>
                 <motion.p style={styles.cardText}>Minds is a distributed team located on both sides of the Atlantic. We communicate via Minds Chat and Gitlab.</motion.p>
-
-                <motion.p style={styles.cardText}><motion.a style={styles.cardLink} variants={heroLinkVar} initial="default" whileHover="hover">Learn more</motion.a></motion.p>
+                <motion.div style={styles.buttonPrimaryAction}
+                  variants={buttonPrimaryVar}
+                  initial="default"
+                  whileHover="hover"
+                >
+                  <motion.a style={styles.buttonPrimaryText}>
+                    Action
+                  </motion.a>
+                </motion.div>
 
               </motion.div>
             </Col>
@@ -789,12 +984,12 @@ function ExampleLandingDocs(): JSX.Element {
 
             <motion.p style={styles.cardSubtitle}> Pinned repositories</motion.p>
 
-            <motion.p style={styles.cardText}><motion.a style={styles.cardLink} variants={heroLinkVar} initial="default" whileHover="hover">Minds frontend</motion.a></motion.p>
-            <motion.p style={styles.cardText}><motion.a style={styles.cardLink} variants={heroLinkVar} initial="default" whileHover="hover">Minds engine</motion.a></motion.p>
-            <motion.p style={styles.cardText}><motion.a style={styles.cardLink} variants={heroLinkVar} initial="default" whileHover="hover">Minds mobile</motion.a></motion.p>
-            <motion.p style={styles.cardText}><motion.a style={styles.cardLink} variants={heroLinkVar} initial="default" whileHover="hover">Minds sockets</motion.a></motion.p>
+            <motion.p style={styles.cardText}><motion.a style={styles.cardLinkLight} variants={heroLinkVar} initial="default" whileHover="hover">Minds frontend</motion.a></motion.p>
+            <motion.p style={styles.cardText}><motion.a style={styles.cardLinkLight} variants={heroLinkVar} initial="default" whileHover="hover">Minds engine</motion.a></motion.p>
+            <motion.p style={styles.cardText}><motion.a style={styles.cardLinkLight} variants={heroLinkVar} initial="default" whileHover="hover">Minds mobile</motion.a></motion.p>
+            <motion.p style={styles.cardText}><motion.a style={styles.cardLinkLight} variants={heroLinkVar} initial="default" whileHover="hover">Minds sockets</motion.a></motion.p>
             <motion.p style={styles.cardSubtitle}> Design resources</motion.p>
-            <motion.p style={styles.cardText}><motion.a style={styles.cardLink} variants={heroLinkVar} initial="default" whileHover="hover">design.minds.com</motion.a></motion.p>
+            <motion.p style={styles.cardText}><motion.a style={styles.cardLinkLight} variants={heroLinkVar} initial="default" whileHover="hover">design.minds.com</motion.a></motion.p>
 
           </motion.div>
 
@@ -802,6 +997,68 @@ function ExampleLandingDocs(): JSX.Element {
 
         </Row>
       </Grid>
+
+
+      <motion.div style={styles.navBottomContainer}>
+        <motion.div style={styles.navTopLeft}>
+          <img style={styles.navTopLeftImg} src={MindsLogoIcon} />
+          <motion.a style={styles.navTopText}>Developers</motion.a>
+
+        </motion.div>
+        <motion.div style={styles.navTopRight}>
+          <Link to="/Pages/ExampleLandingDocs" style={{ textDecoration: "none" }}>
+            <motion.a style={styles.navTopLinkActive}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
+              href="/Pages/ExampleLayout"
+
+            >Home</motion.a>
+          </Link>
+
+          <Link to="/Pages/ExampleLayout" style={{ textDecoration: "none" }}>
+            <motion.a style={styles.navTopLinkActive}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
+
+            >Docs</motion.a>
+          </Link>
+
+
+
+
+          <Link to="/Pages/ExampleLandingDocs" style={{ textDecoration: "none" }}>
+            <motion.a style={styles.navTopLinkDefault}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
+
+            >Bounties</motion.a>
+
+          </Link>
+
+
+            <motion.a style={styles.navTopLinkDefault}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
+              href="https://gitlab.com/minds"
+              target="_blank"
+
+            >Repositories</motion.a>
+            <motion.a style={styles.navTopLinkDefault}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
+              href="https://www.minds.com"
+              target="_blank"
+            >Minds.com</motion.a>
+
+
+
+        </motion.div>
+      </motion.div>
 
 
     </motion.div>

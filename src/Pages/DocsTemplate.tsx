@@ -7,11 +7,14 @@ import { Link } from 'react-router-dom'
 
 import { Grid, Row, Col } from "react-flexbox-grid"
 
-import MindsLogoIcon from '../bulb.svg'
+import MindsLogoIcon from '../mindsLogoLight.svg'
 import ArrowIcon from '../arrow-right.svg'
 import ArrowLeft from '../arrow-left.svg'
 //adding support for IBM Plex Mono as a font.
 
+//rough inline styles here
+
+const GoldText = "#7F661D"
 //rough inline styles here
 const styles = {
 
@@ -66,17 +69,36 @@ const styles = {
     alignItems: "flex-start",
     justifyContent: "space-between",
     width: "100%",
-    backgroundColor: "#E8E8EA",
-    minHeight: "52px",
+    backgroundColor: "#fff",
+    height: "72px",
+    border: "1px solid #E8E8EA",
   } as const,
 
+  navBottomContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+    width: "100%",
+    backgroundColor: "#fff",
+    border: "1px solid #E8E8EA",
+    marginBottom: "-72px"
+  } as const,
+
+
+  navTopText: {
+    fontSize: "19px",
+    lineHeight: "32px",
+    fontWeight: "700",
+    color: "#1C1D1F",
+  } as const,
 
   navTopLeft: {
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-start",
     padding: "24px 24px 24px 24px",
-    gap: "12px",
+    gap: "0px",
     minHeight: "32px",
     flexOrder: "1",
 
@@ -85,8 +107,8 @@ const styles = {
   navTopLeftImg: {
     maxWidth: "100%",
     overflow: "visible",
-    maxHeight: "32px",
-    marginRight: "24px",
+    height: "24px",
+    marginRight: "12px",
   } as const,
 
   navTopRight: {
@@ -100,11 +122,8 @@ const styles = {
   } as const,
 
   navTopLinkDefault: {
-    color: "#1C1D1F",
     fontSize: "16px",
     lineHeight: "22px",
-
-
   } as const,
 
   navTopLinkLeft: {
@@ -115,14 +134,9 @@ const styles = {
   } as const,
 
   navTopLinkActive: {
-
-    color: "#1C1D1F",
     fontSize: "16px",
     lineHeight: "22px",
     textDecoration: "underline",
-
-
-
   } as const,
 
   footerContainer: {} as const,
@@ -134,8 +148,10 @@ const styles = {
   navLeftContainer: {
     width: "100%",
     backgroundColor: '#fff',
-    marginTop: "96px"
-
+    marginTop: "96px",
+    maxHeight: "80%",
+    overflow: "hidden",
+    overflowY: "scroll"
   } as const,
 
 
@@ -143,24 +159,40 @@ const styles = {
     paddingLeft: "16px",
     maxWidth: "172px",
 
-
   } as const,
 
   navLeftTextContainerInner: {
-    paddingLeft: "16px",
-    height: "24px",
+    display: "flex",
+    flexDirection: "row",
+    padding: "4px 172px 4px 16px",
+    gap: "8px",
     maxWidth: "100%",
     backgroundColor: "#FFECB6",
+    marginBottom: "12px",
     borderRadius: "2px",
 
   } as const,
 
   navLeftTextContainerActive: {
-    paddingLeft: "16px",
-
-    height: "24px",
+    display: "flex",
+    flexDirection: "row",
+    padding: "4px 172px 4px 16px",
+    gap: "8px",
     maxWidth: "100%",
     backgroundColor: "#FFECB6",
+    marginBottom: "12px",
+    borderRadius: "2px",
+
+  } as const,
+
+  navLeftTextContainerIter: {
+    display: "flex",
+    flexDirection: "row",
+    padding: "4px 172px 4px 16px",
+    gap: "8px",
+    maxWidth: "100%",
+    backgroundColor: "#FFECB6",
+    marginBottom: "12px",
     borderRadius: "2px",
 
   } as const,
@@ -227,6 +259,18 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-start",
+    justifyContent: "space-between",
+    height: "52px",
+    padding: "8px 8px 8px 8px",
+    marginTop: "64px",
+    gap: "8px",
+
+  } as const,
+
+  docsActionInnerContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-start",
     justifyContent: "flex-end",
     height: "52px",
     padding: "8px 8px 8px 8px",
@@ -235,14 +279,13 @@ const styles = {
 
   } as const,
 
-
   buttonPrimaryAction: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-evenly",
-    maxHeight: "36px",
     minWidth: "52px",
-    padding: "8px 12px",
+    maxHeight: "38px",
+    padding: "8px 24px",
     gap: "8px",
     border: "1px solid #FFD048",
     backgroundColor: "#FFD048",
@@ -251,10 +294,10 @@ const styles = {
 
   buttonPrimaryText: {
     color: "#1C1D1F",
-    fontSize: "19px",
-    lineHeight: "27px",
+    fontSize: "16px",
+    lineHeight: "22px",
     fontWeight: "700",
-    textAlign: "center",
+    letterSpacing: "0.16px"
 
   } as const,
 
@@ -266,9 +309,9 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-evenly",
-    maxHeight: "36px",
+    maxHeight: "38px",
     minWidth: "52px",
-    padding: "8px 12px",
+    padding: "8px 24px",
     gap: "8px",
     border: "1px solid #D0D2D5",
     borderRadius: "100px",
@@ -279,10 +322,11 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-evenly",
-    maxHeight: "36px",
+    maxHeight: "38px",
     minWidth: "52px",
-    padding: "8px 12px",
+    padding: "8px 24px",
     gap: "8px",
+    backgroundColor: "#fff",
     border: "1px solid #FFD048",
     borderRadius: "100px",
 
@@ -314,21 +358,26 @@ const navLeftLinkVar = {
     color: '#7F661D',
     transition: {
       type: "tween",
-      duration: 0.12,
+      duration: 0.14,
     },
   }
 }
 
 const topLinkVar = {
   default: {
+    color: "#1C1D1F",
     textDecoration: "none"
-  }, active: {}, hover: {
+  }, active: {
+    color: "#7F661D",
     textDecoration: "underline",
+  }, hover: {
+    color: "#7F661D",
     transition: {
-      type: "ease",
-      ease: [0.22, 1, 0.36, 1],
-      duration: 0.15,
-    }
+      type: "tween",
+      duration: 0.12,
+    },
+    textDecoration: "underline",
+
   },
 
 }
@@ -336,7 +385,6 @@ const topLinkVar = {
 const buttonPrimaryVar = {
   default: {
     backgroundColor: "#FFD048",
-
 
   }, hover: {
     backgroundColor: "#fff",
@@ -348,21 +396,22 @@ const buttonPrimaryVar = {
 
 }
 
-
 const buttonSecondaryVar = {
-    default: {
-      backgroundColor: "#fff",
-  
-  
-    }, hover: {
-        backgroundColor: "#FFD048",
-        transition: {
-        type: "tween",
-        duration: 0.14,
-      }
-    },
-  
-  }
+  default: {
+    backgroundColor: "#fff",
+
+
+  }, hover: {
+    backgroundColor: "#FFD048",
+    transition: {
+      type: "tween",
+      duration: 0.14,
+    }
+  },
+
+}
+
+
 const buttonBaseVar = {
   default: {
     opacity: 1,
@@ -378,43 +427,74 @@ const buttonBaseVar = {
 }
 
 
+
 //style rough layout and docs page here.
 
 function DocsTemplate(): JSX.Element {
   return (
     <motion.div>
+
       <motion.div style={styles.navTopContainer}>
         <motion.div style={styles.navTopLeft}>
           <img style={styles.navTopLeftImg} src={MindsLogoIcon} />
-          <motion.a style={styles.navTopLinkLeft}
-            variants={topLinkVar}
-            initial="default"
-            whileHover="hover"
-
-          >back to minds.com</motion.a>
+          <motion.a style={styles.navTopText}>Developers</motion.a>
 
         </motion.div>
         <motion.div style={styles.navTopRight}>
-          <motion.a style={styles.navTopLinkActive}
-                      variants={topLinkVar}
-                      initial="default"
-                      whileHover="hover"
-          
-          >Home</motion.a>
-          <motion.a style={styles.navTopLinkActive}
-          >Docs</motion.a>
-          <motion.a style={styles.navTopLinkDefault}
-            variants={topLinkVar}
-            initial="default"
-            whileHover="hover"
+          <Link to="/Pages/ExampleLandingDocs" style={{ textDecoration: "none" }}>
+            <motion.a style={styles.navTopLinkActive}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
+              href="/Pages/ExampleLayout"
 
-          >Contribute</motion.a>
-          <motion.a style={styles.navTopLinkDefault}
-            variants={topLinkVar}
-            initial="default"
-            whileHover="hover"
+            >Home</motion.a>
+          </Link>
 
-          >Repositories</motion.a>
+          <Link to="/Pages/ExampleLayout" style={{ textDecoration: "none" }}>
+            <motion.a style={styles.navTopLinkActive}
+              variants={topLinkVar}
+              initial="active"
+              whileHover="hover"
+
+            >Docs</motion.a>
+          </Link>
+
+
+
+
+          <Link to="/Pages/ExampleLayout" style={{ textDecoration: "none" }}>
+            <motion.a style={styles.navTopLinkDefault}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
+
+            >Contribute</motion.a>
+
+          </Link>
+
+
+          <motion.a style={styles.navTopLinkDefault}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
+              href="https://gitlab.com/minds"
+              target="_blank"
+
+            >Repositories</motion.a>
+
+
+
+<motion.a style={styles.navTopLinkDefault}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
+              href="https://www.minds.com"
+              target="_blank"
+
+            >Minds.com</motion.a>
+
+
 
         </motion.div>
       </motion.div>
@@ -423,40 +503,187 @@ function DocsTemplate(): JSX.Element {
           <Col xs={2}>
             <motion.div style={styles.navLeftContainer}>
               <motion.div style={styles.navLeftTextContainer}>
-                <h2 style={styles.navLeftHeader}>Getting Started</h2>
+                <motion.h2 style={styles.navLeftHeader}>Getting Started</motion.h2>
 
+                <motion.div style={styles.navLeftTextContainerInner}
+                  variants={navLeftContainerVar}
+                  initial="default"
+                  whileHover="hover"
+                >
+
+
+                  <Link to="/Pages/ExampleLayout" style={{ textDecoration: "none" }}>
+                    <motion.a style={styles.navLeftText}
+                      variants={navLeftLinkVar}
+                      initial="default"
+                      whileHover="hover"
+                    >Introduction</motion.a>
+
+                  </Link>
+
+                </motion.div>
                 <motion.div
                   style={styles.navLeftTextContainerActive}>
-                  <motion.p style={styles.navLeftTextActive}>Introduction</motion.p>
+                  <motion.a style={styles.navLeftTextActive}>Template</motion.a>
                 </motion.div>
                 <motion.div style={styles.navLeftTextContainerInner}
                   variants={navLeftContainerVar}
                   initial="default"
                   whileHover="hover"
                 >
-                  <motion.p style={styles.navLeftText}
-                    variants={navLeftLinkVar}
-                    initial="default"
-                    whileHover="hover"
-                  >Installation</motion.p>
-                </motion.div>
-                <motion.div style={styles.navLeftTextContainerInner}
-                  variants={navLeftContainerVar}
-                  initial="default"
-                  whileHover="hover"
-                >
-                  <motion.p style={styles.navLeftText}
+                  <motion.a style={styles.navLeftText}
                     variants={navLeftLinkVar}
                     initial="default"
                     whileHover="hover"
                   >
-                    Troubleshooting
-                  </motion.p>
+                    Example
+                  </motion.a>
+
                 </motion.div>
 
-              </motion.div>
+                <motion.h2 style={styles.navLeftHeader}>Example topic</motion.h2>
+                <motion.div style={styles.navLeftTextContainerInner}
+                  variants={navLeftContainerVar}
+                  initial="default"
+                  whileHover="hover"
+                >
+                  <motion.a style={styles.navLeftText}
+                    variants={navLeftLinkVar}
+                    initial="default"
+                    whileHover="hover"
+                  >Example</motion.a>
+                </motion.div>
+                <motion.div style={styles.navLeftTextContainerInner}
+                  variants={navLeftContainerVar}
+                  initial="default"
+                  whileHover="hover"
+                >
+                  <motion.a style={styles.navLeftText}
+                    variants={navLeftLinkVar}
+                    initial="default"
+                    whileHover="hover"
+                  >Example</motion.a>
+                </motion.div>
+                <motion.div style={styles.navLeftTextContainerInner}
+                  variants={navLeftContainerVar}
+                  initial="default"
+                  whileHover="hover"
+                >
+                  <motion.a style={styles.navLeftText}
+                    variants={navLeftLinkVar}
+                    initial="default"
+                    whileHover="hover"
+                  >Example</motion.a>
+                </motion.div>
+                <motion.div style={styles.navLeftTextContainerInner}
+                  variants={navLeftContainerVar}
+                  initial="default"
+                  whileHover="hover"
+                >
+                  <motion.a style={styles.navLeftText}
+                    variants={navLeftLinkVar}
+                    initial="default"
+                    whileHover="hover"
+                  >Example</motion.a>
+                </motion.div>
 
+                <motion.h2 style={styles.navLeftHeader}>Example topic</motion.h2>
+                <motion.div style={styles.navLeftTextContainerInner}
+                  variants={navLeftContainerVar}
+                  initial="default"
+                  whileHover="hover"
+                >
+                  <motion.a style={styles.navLeftText}
+                    variants={navLeftLinkVar}
+                    initial="default"
+                    whileHover="hover"
+                  >Example</motion.a>
+                </motion.div>
+                <motion.div style={styles.navLeftTextContainerInner}
+                  variants={navLeftContainerVar}
+                  initial="default"
+                  whileHover="hover"
+                >
+                  <motion.a style={styles.navLeftText}
+                    variants={navLeftLinkVar}
+                    initial="default"
+                    whileHover="hover"
+                  >Example</motion.a>
+                </motion.div>
+                <motion.div style={styles.navLeftTextContainerInner}
+                  variants={navLeftContainerVar}
+                  initial="default"
+                  whileHover="hover"
+                >
+                  <motion.a style={styles.navLeftText}
+                    variants={navLeftLinkVar}
+                    initial="default"
+                    whileHover="hover"
+                  >Example</motion.a>
+                </motion.div>
+                <motion.div style={styles.navLeftTextContainerInner}
+                  variants={navLeftContainerVar}
+                  initial="default"
+                  whileHover="hover"
+                >
+                  <motion.a style={styles.navLeftText}
+                    variants={navLeftLinkVar}
+                    initial="default"
+                    whileHover="hover"
+                  >Example</motion.a>
+                </motion.div>
+
+                <motion.h2 style={styles.navLeftHeader}>Example topic</motion.h2>
+                <motion.div style={styles.navLeftTextContainerInner}
+                  variants={navLeftContainerVar}
+                  initial="default"
+                  whileHover="hover"
+                >
+                  <motion.a style={styles.navLeftText}
+                    variants={navLeftLinkVar}
+                    initial="default"
+                    whileHover="hover"
+                  >Example</motion.a>
+                </motion.div>
+                <motion.div style={styles.navLeftTextContainerInner}
+                  variants={navLeftContainerVar}
+                  initial="default"
+                  whileHover="hover"
+                >
+                  <motion.a style={styles.navLeftText}
+                    variants={navLeftLinkVar}
+                    initial="default"
+                    whileHover="hover"
+                  >Example</motion.a>
+                </motion.div>
+                <motion.div style={styles.navLeftTextContainerInner}
+                  variants={navLeftContainerVar}
+                  initial="default"
+                  whileHover="hover"
+                >
+                  <motion.a style={styles.navLeftText}
+                    variants={navLeftLinkVar}
+                    initial="default"
+                    whileHover="hover"
+                  >Example</motion.a>
+                </motion.div>
+                <motion.div style={styles.navLeftTextContainerInner}
+                  variants={navLeftContainerVar}
+                  initial="default"
+                  whileHover="hover"
+                >
+                  <motion.a style={styles.navLeftText}
+                    variants={navLeftLinkVar}
+                    initial="default"
+                    whileHover="hover"
+                  >Example</motion.a>
+                </motion.div>
+
+                <motion.h2 style={styles.navLeftHeader}>Example topic</motion.h2>
+              </motion.div>
             </motion.div>
+
+
           </Col>
           <Col xs={8}>
             <motion.div style={styles.docsContainer}>
@@ -502,36 +729,42 @@ function DocsTemplate(): JSX.Element {
               </motion.div>
 
               <motion.div style={styles.docsActionContainer}>
-                <motion.div style={styles.buttonOutlineAction}
-                  variants={buttonBaseVar}
-                  initial="default"
-                  whileHover="hover"
-                >
-                  <a style={styles.buttonPrimaryText}>Edit</a>
+                <motion.div style={styles.docsActionInnerContainer}>
+                  <motion.div style={styles.buttonOutlineAction}
+                    variants={buttonBaseVar}
+                    initial="default"
+                    whileHover="hover"
+                  >
+                    <a style={styles.buttonPrimaryText}>Edit</a>
+                  </motion.div>
+                </motion.div>
+                <motion.div style={styles.docsActionInnerContainer}>
+                  <motion.div style={styles.buttonSecondaryAction}
+                    variants={buttonSecondaryVar}
+                    initial="default"
+                    whileHover="hover"
+                  >
+                    <img src={ArrowLeft} style={{ height: "20px" }}></img>
+
+                    <Link to='/Pages/ExampleLayout' style={{ textDecoration: 'none' }}>
+                      <a style={styles.buttonPrimaryText}>Intro page</a>
+                    </Link>
+                  </motion.div>
+
+                  <motion.div style={styles.buttonPrimaryAction}
+                    variants={buttonPrimaryVar}
+                    initial="default"
+                    whileHover="hover"
+                  >
+                    <Link to='/Pages/DocsTemplate' style={{ textDecoration: 'none' }}>
+                      <a style={styles.buttonPrimaryText}>Template page 2</a>
+                    </Link>
+                    <img src={ArrowIcon} style={{ height: "20px" }}></img>
+                  </motion.div>
+
                 </motion.div>
 
-                <motion.div style={styles.buttonSecondaryAction}
-                  variants={buttonSecondaryVar}
-                  initial="default"
-                  whileHover="hover"
-                >
-                                      <img src={ArrowLeft}></img>
 
-                  <Link to= '/Pages/ExampleLayout' style={{textDecoration: 'none'}}>
-                  <a style={styles.buttonPrimaryText}>Intro page</a>
-                  </Link>
-                </motion.div>
-
-                <motion.div style={styles.buttonPrimaryAction}
-                  variants={buttonPrimaryVar}
-                  initial="default"
-                  whileHover="hover"
-                >
-                  <Link to= '/Pages/DocsTemplate' style={{textDecoration: 'none'}}>
-                  <a style={styles.buttonPrimaryText}>Template page 2</a>
-                  </Link>
-                  <img src={ArrowIcon}></img>
-                </motion.div>
 
 
 
@@ -542,26 +775,87 @@ function DocsTemplate(): JSX.Element {
           <Col xs={2}>
             <motion.div style={styles.navRightContainer}>
               <motion.div style={styles.navLeftTextContainer}>
-                <motion.p style={styles.navLeftTextActive}>Repositories</motion.p>
+                <motion.p style={styles.navLeftTextActive}>Example header</motion.p>
                 <motion.p
                   style={styles.navLeftText}
                   variants={navLeftLinkVar}
                   initial="default"
                   whileHover="hover"
 
-                >Installation</motion.p>
+                >Example header</motion.p>
                 <motion.p style={styles.navLeftText}
                   variants={navLeftLinkVar}
                   initial="default"
                   whileHover="hover"
 
-                >System requirements</motion.p>
+                >Example header</motion.p>
 
               </motion.div>
             </motion.div>
           </Col>
         </Row>
       </Grid>
+
+      <motion.div style={styles.navBottomContainer}>
+        <motion.div style={styles.navTopLeft}>
+          <img style={styles.navTopLeftImg} src={MindsLogoIcon} />
+          <motion.a style={styles.navTopText}>Developers</motion.a>
+
+        </motion.div>
+        <motion.div style={styles.navTopRight}>
+          <Link to="/Pages/ExampleLandingDocs" style={{ textDecoration: "none" }}>
+            <motion.a style={styles.navTopLinkActive}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
+              href="/Pages/ExampleLayout"
+
+            >Home</motion.a>
+          </Link>
+
+          <Link to="/Pages/ExampleLayout" style={{ textDecoration: "none" }}>
+            <motion.a style={styles.navTopLinkActive}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
+
+            >Docs</motion.a>
+          </Link>
+
+
+
+
+          <Link to="/Pages/ExampleLandingDocs" style={{ textDecoration: "none" }}>
+            <motion.a style={styles.navTopLinkDefault}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
+
+            >Bounties</motion.a>
+
+          </Link>
+
+
+            <motion.a style={styles.navTopLinkDefault}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
+              href="https://gitlab.com/minds"
+              target="_blank"
+
+            >Repositories</motion.a>
+            <motion.a style={styles.navTopLinkDefault}
+              variants={topLinkVar}
+              initial="default"
+              whileHover="hover"
+              href="https://www.minds.com"
+              target="_blank"
+            >Minds.com</motion.a>
+
+
+
+        </motion.div>
+      </motion.div>
 
 
     </motion.div>
