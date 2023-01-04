@@ -5,15 +5,18 @@ import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import "@fontsource/inter"
+import ScrollToTop from './ScrollToTop';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-    <App />
-    </BrowserRouter>
+      <BrowserRouter>
+      <ScrollToTop/>
+
+        <App />
+      </BrowserRouter>
   </React.StrictMode>
 );
 

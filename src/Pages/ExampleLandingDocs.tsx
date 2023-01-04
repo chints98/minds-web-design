@@ -316,6 +316,7 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-start",
+    justifyContent: "space-between",
     padding: "32px 48px",
     width: "100%",
     minHeight: "440px",
@@ -325,13 +326,12 @@ const styles = {
   } as const,
 
   heroContentContainer: {
-
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
-    padding: "24px 8px",
     gap: "24px",
-    minWidth: "480px",
+    paddingLeft: "64px",
+    maxWidth: "80%",
     minHeight: "380px",
     //border: "1px solid black"
 
@@ -695,24 +695,24 @@ function ExampleLandingDocs(): JSX.Element {
           </Link>
 
 
-            <motion.a style={styles.navTopLinkDefault}
-              variants={topLinkVar}
-              initial="default"
-              whileHover="hover"
-              href="https://gitlab.com/minds"
-              target="_blank"
+          <motion.a style={styles.navTopLinkDefault}
+            variants={topLinkVar}
+            initial="default"
+            whileHover="hover"
+            href="https://gitlab.com/minds"
+            target="_blank"
 
-            >Repositories</motion.a>
+          >Repositories</motion.a>
 
 
-            <motion.a style={styles.navTopLinkDefault}
-              variants={topLinkVar}
-              initial="default"
-              whileHover="hover"
-              href="https://www.minds.com"
-              target="_blank"
+          <motion.a style={styles.navTopLinkDefault}
+            variants={topLinkVar}
+            initial="default"
+            whileHover="hover"
+            href="https://www.minds.com"
+            target="_blank"
 
-            >Minds.com</motion.a>
+          >Minds.com</motion.a>
 
 
 
@@ -722,7 +722,7 @@ function ExampleLandingDocs(): JSX.Element {
 
 
       <Grid fluid={true}>
-        <Row around="xs">
+        <Row between="xs">
           <Row>
             <motion.div style={styles.heroContainer}>
               <Col>
@@ -733,13 +733,13 @@ function ExampleLandingDocs(): JSX.Element {
                   <motion.p style={styles.heroContentText}>
                     Welcome to the Minds developer portal. Find everything you need to start contributing to Minds, work with any of the projects in the Minds stack, or get familiar with our product roadmap.
                   </motion.p>
-                  <motion.p style={styles.bodyTextBold}>If you’re looking for design tokens and UI resources, check out <motion.a style={styles.cardLink} variants={heroLinkVar} initial="default" whileHover="hover">design.minds.com</motion.a></motion.p>
+                  <motion.p style={styles.bodyTextBold}>If you’re looking for design tokens and UI resources, check out <motion.a style={styles.cardLink} variants={heroLinkVar} initial="default" whileHover="hover" href="https://zeroheight.com/3d3fe81da/p/85c368" target="_blank">design.minds.com</motion.a></motion.p>
                 </motion.div>
               </Col>
               <Col>
 
                 <motion.div>
-                  <Spline style={styles.heroImgContainer} scene="https://prod.spline.design/od2U43kR8huT1vOn/scene.splinecode"/>
+                  <Spline style={styles.heroImgContainer} scene="https://prod.spline.design/od2U43kR8huT1vOn/scene.splinecode" />
                 </motion.div>
               </Col>
             </motion.div>
@@ -778,9 +778,13 @@ function ExampleLandingDocs(): JSX.Element {
                       initial="default"
                       whileHover="hover"
                     >
-                      <motion.a style={styles.buttonPrimaryText}>
-                        Action
-                      </motion.a>
+                      <Link to="/Pages/ExampleLayout" style={{ textDecoration: "none" }}>
+                        <motion.a style={styles.buttonPrimaryText}>
+                          Action
+                        </motion.a>
+
+                      </Link>
+
                     </motion.div>
                   </motion.div>
                 </motion.div>
@@ -818,9 +822,12 @@ function ExampleLandingDocs(): JSX.Element {
                       initial="default"
                       whileHover="hover"
                     >
-                      <motion.a style={styles.buttonPrimaryText}>
-                        Action
-                      </motion.a>
+                      <Link to="/Pages/ExampleLayout" style={{ textDecoration: "none" }}>
+                        <motion.a style={styles.buttonPrimaryText}>
+                          Action
+                        </motion.a>
+
+                      </Link>
                     </motion.div>
                   </motion.div>
                 </motion.div>
@@ -869,9 +876,12 @@ function ExampleLandingDocs(): JSX.Element {
                       initial="default"
                       whileHover="hover"
                     >
-                      <motion.a style={styles.buttonPrimaryText}>
-                        Action
-                      </motion.a>
+                      <Link to="/Pages/ExampleLayout" style={{ textDecoration: "none" }}>
+                        <motion.a style={styles.buttonPrimaryText}>
+                          Action
+                        </motion.a>
+
+                      </Link>
                     </motion.div>
                   </motion.div>
                 </motion.div>
@@ -909,9 +919,12 @@ function ExampleLandingDocs(): JSX.Element {
                       initial="default"
                       whileHover="hover"
                     >
-                      <motion.a style={styles.buttonPrimaryText}>
-                        Action
-                      </motion.a>
+                      <Link to="/Pages/ExampleLayout" style={{ textDecoration: "none" }}>
+                        <motion.a style={styles.buttonPrimaryText}>
+                          Action
+                        </motion.a>
+
+                      </Link>
                     </motion.div>
                   </motion.div>
                 </motion.div>
@@ -937,9 +950,12 @@ function ExampleLandingDocs(): JSX.Element {
                   initial="default"
                   whileHover="hover"
                 >
-                  <motion.a style={styles.buttonPrimaryText}>
-                    Action
-                  </motion.a>
+                      <Link to="/Pages/ExampleLayout" style={{ textDecoration: "none" }}>
+                        <motion.a style={styles.buttonPrimaryText}>
+                          Action
+                        </motion.a>
+
+                      </Link>
                 </motion.div>
 
               </motion.div>
@@ -968,9 +984,12 @@ function ExampleLandingDocs(): JSX.Element {
                   initial="default"
                   whileHover="hover"
                 >
-                  <motion.a style={styles.buttonPrimaryText}>
-                    Action
-                  </motion.a>
+                      <Link to="/Pages/ExampleLayout" style={{ textDecoration: "none" }}>
+                        <motion.a style={styles.buttonPrimaryText}>
+                          Action
+                        </motion.a>
+
+                      </Link>
                 </motion.div>
 
               </motion.div>
@@ -982,12 +1001,12 @@ function ExampleLandingDocs(): JSX.Element {
 
             <motion.p style={styles.cardSubtitle}> Pinned repositories</motion.p>
 
-            <motion.p style={styles.cardText}><motion.a style={styles.cardLinkLight} variants={heroLinkVar} initial="default" whileHover="hover">Minds frontend</motion.a></motion.p>
-            <motion.p style={styles.cardText}><motion.a style={styles.cardLinkLight} variants={heroLinkVar} initial="default" whileHover="hover">Minds engine</motion.a></motion.p>
-            <motion.p style={styles.cardText}><motion.a style={styles.cardLinkLight} variants={heroLinkVar} initial="default" whileHover="hover">Minds mobile</motion.a></motion.p>
-            <motion.p style={styles.cardText}><motion.a style={styles.cardLinkLight} variants={heroLinkVar} initial="default" whileHover="hover">Minds sockets</motion.a></motion.p>
+            <motion.p style={styles.cardText}><motion.a style={styles.cardLinkLight} variants={heroLinkVar} initial="default" whileHover="hover" href="https://gitlab.com/minds" target="_blank">Minds frontend</motion.a></motion.p>
+            <motion.p style={styles.cardText}><motion.a style={styles.cardLinkLight} variants={heroLinkVar} initial="default" whileHover="hover" href="https://gitlab.com/minds" target="_blank">Minds engine</motion.a></motion.p>
+            <motion.p style={styles.cardText}><motion.a style={styles.cardLinkLight} variants={heroLinkVar} initial="default" whileHover="hover" href="https://gitlab.com/minds" target="_blank">Minds mobile</motion.a></motion.p>
+            <motion.p style={styles.cardText}><motion.a style={styles.cardLinkLight} variants={heroLinkVar} initial="default" whileHover="hover" href="https://gitlab.com/minds" target="_blank">Minds sockets</motion.a></motion.p>
             <motion.p style={styles.cardSubtitle}> Design resources</motion.p>
-            <motion.p style={styles.cardText}><motion.a style={styles.cardLinkLight} variants={heroLinkVar} initial="default" whileHover="hover">design.minds.com</motion.a></motion.p>
+            <motion.p style={styles.cardText}><motion.a style={styles.cardLinkLight} variants={heroLinkVar} initial="default" whileHover="hover" href="https://zeroheight.com/3d3fe81da/p/85c368" target="_blank">design.minds.com</motion.a></motion.p>
 
           </motion.div>
 
@@ -1037,21 +1056,21 @@ function ExampleLandingDocs(): JSX.Element {
           </Link>
 
 
-            <motion.a style={styles.navTopLinkDefault}
-              variants={topLinkVar}
-              initial="default"
-              whileHover="hover"
-              href="https://gitlab.com/minds"
-              target="_blank"
+          <motion.a style={styles.navTopLinkDefault}
+            variants={topLinkVar}
+            initial="default"
+            whileHover="hover"
+            href="https://gitlab.com/minds"
+            target="_blank"
 
-            >Repositories</motion.a>
-            <motion.a style={styles.navTopLinkDefault}
-              variants={topLinkVar}
-              initial="default"
-              whileHover="hover"
-              href="https://www.minds.com"
-              target="_blank"
-            >Minds.com</motion.a>
+          >Repositories</motion.a>
+          <motion.a style={styles.navTopLinkDefault}
+            variants={topLinkVar}
+            initial="default"
+            whileHover="hover"
+            href="https://www.minds.com"
+            target="_blank"
+          >Minds.com</motion.a>
 
 
 
