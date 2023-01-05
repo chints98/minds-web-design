@@ -87,7 +87,7 @@ const styles = {
 
 
   navTopText: {
-    fontSize: "19px",
+    fontSize: "16px",
     lineHeight: "32px",
     fontWeight: "700",
     color: "#1C1D1F",
